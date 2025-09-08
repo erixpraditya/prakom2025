@@ -1,0 +1,22 @@
+<?php
+    #### PROSES FORM TAMBAH DATA PASIEN ####
+    #1. Koneksi
+    include('../koneksi.php');
+    #2. Menangkap data dari form
+    $nama = $_POST['nama'];
+    $tgl = $_POST['tgl'];
+    $jk = $_POST['jk'];
+    $alamat = $_POST['alamat'];
+    if($jk == 1){
+        $jk = "Laki - Laki";
+    }else{
+        $jk = "Perempuan";
+    }
+    #3. Menuliskan query
+    $qry = mysqli_query(mysql: $koneksi,query: "INSERT INTO pasien (Nama_pasienKlinik, Tanggal_LahirPasien, Jenis_KelaminPasien, Alamat_Pasien) VALUES ('$nama', '$tgl', '$jk', '$alamat')");
+
+    #5. Pengalihan halaman
+    header(header: "location:index.php");
+
+    // tambahkan validasi minimal tanggal lahir lebih kecil dari hari ini, jika gagal kembalikan ke form.php dan berikan pesan erorr
+?>
