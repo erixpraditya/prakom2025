@@ -18,10 +18,10 @@
             <div class="col-10 m-auto mt-5">
                 <div class="card">
                     <div class="card-header">
-                        Data Pasien
+                        <b>Data Pasien</b>
                     </div>
                     <div class="card-body">
-                        <a href="" class="btn btn-primary">Tambah Data</a>
+                        <a href="form.php" class="btn btn-primary">Tambah Data</a>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
