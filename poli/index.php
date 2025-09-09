@@ -21,7 +21,7 @@
                         Data Poli
                     </div>
                     <div class="card-body">
-                        <a href="" class="btn btn-primary">Tambah Data</a>
+                        <a href="form.php" class="btn btn-primary">Tambah Data</a>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -32,31 +32,50 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    #1. Koneksi
-                                    include('../koneksi.php');
+                                #1. Koneksi
+                                include('../koneksi.php');
 
-                                    #2. Menuliskan query
-                                    $qry = "SELECT * FROM poli";
+                                #2. Menuliskan query
+                                $qry = "SELECT * FROM poli";
 
-                                    #3. Menjalankan query
-                                    $result = mysqli_query(mysql: $koneksi,query: $qry);
+                                #3. Menjalankan query
+                                $result = mysqli_query(mysql: $koneksi, query: $qry);
 
-                                    #4. Melakukan Looping data pasien
-                                    $nomor = 1;
-                                    foreach($result as $row){
+                                #4. Melakukan Looping data pasien
+                                $nomor = 1;
+                                foreach ($result as $row) {
                                 ?>
-                                <tr>
-                                    <th scope="row"><?=$nomor++?></th>
-                                    <td><?=$row['Nama_Poli']?></td>
-                                    <td>
-                                        <a href="" class="btn btn-info btn-sm">edit</a>
-                                        <a href="" class="btn btn-danger btn-sm">hapus</a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <th scope="row"><?= $nomor++ ?></th>
+                                        <td><?= $row['Nama_Poli'] ?></td>
+                                        <td>
+                                            <a href="edit.php?id=<?= $row['Poli_ID'] ?>" class="btn btn-info btn-sm">edit</a>
+                                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row['Poli_ID'] ?>">
+                                                Hapus
+                                            </button>
+
+                                            <div class="modal fade" id="exampleModal<?= $row['Poli_ID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel<?= $row['Poli_ID'] ?>" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel<?= $row['Poli_ID'] ?>">Peringatan</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Yakin data poli <b><?= $row['Nama_Poli'] ?></b> akan dihapus?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                            <a href="hapus.php?id=<?= $row['Poli_ID'] ?>" class="btn btn-danger">Hapus</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </tr>
                                 <?php
-                                        }
+                                }
                                 ?>
-                                
+
                             </tbody>
                         </table>
                     </div>
