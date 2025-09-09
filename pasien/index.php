@@ -57,7 +57,7 @@
                                         <td><?= $row['Jenis_KelaminPasien'] ?></td>
                                         <td><?= $row['Alamat_Pasien'] ?></td>
                                         <td>
-                                            <a href="" class="btn btn-info btn-sm">edit</a>
+                                            <a href="edit.php?id=<?= $row['pasienKlinik_ID'] ?>" class="btn btn-info btn-sm">edit</a>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row['Nama_pasienKlinik'] ?>">
                                                 Hapus
