@@ -49,7 +49,7 @@
                                         <th scope="row"><?= $nomor++ ?></th>
                                         <td><?= $row['Nama_Poli'] ?></td>
                                         <td>
-                                            <a href="edit.php?id=<?= $row['Poli_ID'] ?>" class="btn btn-info btn-sm">edit</a>
+                                            <a href="edit.php?id=<?= $row['Poli_ID'] ?>" class="btn btn-info btn-sm">Edit</a>
                                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row['Poli_ID'] ?>">
                                                 Hapus
                                             </button>
